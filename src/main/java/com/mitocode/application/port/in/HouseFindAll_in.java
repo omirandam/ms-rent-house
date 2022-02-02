@@ -15,8 +15,10 @@ public class HouseFindAll_in implements IHouseFindAll_in {
 	@Autowired
 	private IHouseFindAll_out findAll_out;
 	
+	@Override
 	public List<HouseDto> findAll(){
 		return findAll_out.findAll().stream().map(HouseDto::of).collect(Collectors.toList());
 	}
+	
 
 }

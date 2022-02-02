@@ -7,5 +7,5 @@ import com.mitocode.adapter.entity.House;
 public interface IHouseFindAll_out {
 	
 	public List<House> findAll();
-
+	
 }
