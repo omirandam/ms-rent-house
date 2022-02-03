@@ -1,5 +1,8 @@
 package com.mitocode.adapter.entity;
 
+
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,10 +29,10 @@ public class Availability {
 	public String client_name;
 
 	@Column(nullable = false)
-	public String from;
+	public Date from_date;
 
 	@Column(nullable = false)
-	public String until;
+	public Date until_date;
 
 	
 }
