@@ -16,9 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mitocode.adapter.dto.AvailabilityDto;
 import com.mitocode.adapter.dto.AvailabilityInfo;
+import com.mitocode.adapter.dto.HouseDto;
 import com.mitocode.adapter.dto.HouseInfo;
-import com.mitocode.application.dto.HouseDto;
 import com.mitocode.application.port.in.IAvalabilityCreate_in;
 import com.mitocode.application.port.in.IAvalabilityDelete_in;
 import com.mitocode.application.port.in.IAvalabilityUpdate_in;
@@ -63,14 +64,16 @@ public class HouseController {
     }
     
     @PostMapping("/house")
-    public ResponseEntity<String> create(@RequestBody @Valid HouseInfo infoHouse){
-    	create_in.create(infoHouse);
+    public ResponseEntity<String> create(@RequestBody @Valid HouseInfo houseInfo){
+    	HouseDto houseDto = new HouseDto(null, houseInfo.getAddress(), houseInfo.getOwner(),  houseInfo.getTelephone_contact(),  houseInfo.getContact_email(), null);
+		create_in.create(houseDto);
         return new ResponseEntity<>("Ok", HttpStatus.OK);
     }
 
     @PutMapping("/house/{id}")
-    public ResponseEntity<String> update(@PathVariable Integer id,@RequestBody @Valid HouseInfo infoHouse){
-    	update_in.update(id, infoHouse);
+    public ResponseEntity<String> update(@PathVariable Integer id,@RequestBody @Valid HouseInfo houseInfo){
+    	HouseDto houseDto = new HouseDto(null, houseInfo.getAddress(), houseInfo.getOwner(),  houseInfo.getTelephone_contact(),  houseInfo.getContact_email(), null);
+		update_in.update(id, houseDto);
         return new ResponseEntity<>("Ok", HttpStatus.OK);
     }
     
@@ -87,13 +90,15 @@ public class HouseController {
     
     @PostMapping("/availability")
     public ResponseEntity<String> createAvailability(@RequestBody @Valid AvailabilityInfo availabilityInfo){
-    	avalabilityCreate_in.create(availabilityInfo);
+    	AvailabilityDto availabilityDto = new AvailabilityDto(null, availabilityInfo.getClient_name(), availabilityInfo.getFrom_date(), availabilityInfo.getUntil_date());
+		avalabilityCreate_in.create(availabilityInfo.getId_house(),availabilityDto);
         return new ResponseEntity<>("Ok", HttpStatus.OK);
     }
 
     @PutMapping("/availability/{id}")
     public ResponseEntity<String> updateAvailability(@PathVariable Integer id,@RequestBody @Valid AvailabilityInfo availabilityInfo){
-    	avalabilityUpdate_in.update(id, availabilityInfo);
+    	AvailabilityDto availabilityDto = new AvailabilityDto(id, availabilityInfo.getClient_name(), availabilityInfo.getFrom_date(), availabilityInfo.getUntil_date());
+		avalabilityUpdate_in.update(availabilityInfo.getId_house(), availabilityDto);
         return new ResponseEntity<>("Ok", HttpStatus.OK);
     }
     

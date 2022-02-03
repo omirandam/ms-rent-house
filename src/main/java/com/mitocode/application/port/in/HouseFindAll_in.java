@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mitocode.application.dto.HouseDto;
+import com.mitocode.adapter.dto.HouseDto;
 import com.mitocode.application.port.out.IHouseFindAll_out;
 
 @Service

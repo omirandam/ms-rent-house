@@ -1,4 +1,4 @@
-package com.mitocode.application.dto;
+package com.mitocode.adapter.dto;
 
 import java.text.SimpleDateFormat;
 import java.sql.Date;
