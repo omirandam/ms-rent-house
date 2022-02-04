@@ -13,6 +13,10 @@ public class HouseFind_in implements IHouseFind_in {
 	@Autowired
 	private IHouseFind_out find_out;
 	
+	public HouseFind_in(IHouseFind_out find_out) {
+		this.find_out = find_out;
+	}
+	
 	@Override
 	public HouseDto find(Integer id){
 		return HouseDto.of(find_out.find(id));

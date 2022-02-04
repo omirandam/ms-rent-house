@@ -14,6 +14,10 @@ public class HouseFindAll_out implements IHouseFindAll_out {
 	@Autowired
 	private HouseRepository houseRepository;
 	
+	public HouseFindAll_out(HouseRepository houseRepository) {
+		this.houseRepository = houseRepository;
+	}
+	
 	@Override
 	public List<House> findAll(){
 		return houseRepository.findAll();

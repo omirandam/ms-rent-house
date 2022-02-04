@@ -14,6 +14,10 @@ public class HouseCreate_in implements IHouseCreate_in {
 	@Autowired
 	private IHouseCreate_out iCreate_out;
 	
+	public HouseCreate_in(IHouseCreate_out iCreate_out) {
+		this.iCreate_out = iCreate_out;
+	}
+
 	@Override
 	public void create(HouseDto houseDto) {
 		try {

@@ -1,6 +1,8 @@
 package com.mitocode.application.port.out;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,11 +30,17 @@ public class AvailabilityUpdate_out implements IAvalabilityUpdate_out {
 				House house = optionalHouse.get();
 				Optional<Availability>optionalAvailability = availabilityRepository.findById(availability.getId());
 				if(optionalAvailability.isPresent()) {
-					Availability av = optionalAvailability.get();
-					av.setClient_name(availability.getClient_name());
-					av.setFrom_date(availability.getFrom_date());
-					av.setUntil_date(availability.getUntil_date());
-					house.availabilitys.add(av);
+					
+					List<Availability>list = house.availabilitys.stream().map(item -> {
+						if(item.getId() == optionalAvailability.get().getId()) {
+							item.setClient_name(availability.getClient_name());
+							item.setFrom_date(availability.getFrom_date());
+							item.setUntil_date(availability.getUntil_date());
+						}
+						return item;
+					}).collect(Collectors.toList());
+					
+					house.setAvailabilitys(list);
 					houseRepository.save(house);
 				}
 				else 

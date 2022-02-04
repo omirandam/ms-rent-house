@@ -13,7 +13,10 @@ public class HouseCreate_out implements IHouseCreate_out {
 	
 	@Autowired
 	private HouseRepository houseRepository;
-	
+
+	public HouseCreate_out(HouseRepository houseRepository) {
+		this.houseRepository = houseRepository;
+	}
 
 	@Override
 	public void create(House house) {

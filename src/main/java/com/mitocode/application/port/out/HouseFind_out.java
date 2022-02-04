@@ -15,6 +15,10 @@ public class HouseFind_out implements IHouseFind_out {
 	@Autowired
 	private HouseRepository houseRepository;
 	
+	public HouseFind_out(HouseRepository houseRepository) {
+		this.houseRepository = houseRepository;
+	}
+	
 	@Override
 	public House find(Integer id){
 		Optional<House>optional = houseRepository.findById(id);
