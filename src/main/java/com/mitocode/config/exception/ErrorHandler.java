@@ -8,7 +8,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.mitocode.application.dto.ExceptionResponse;
+import com.mitocode.adapter.dto.ExceptionResponse;
 import com.mitocode.application.util.Time;
 
 

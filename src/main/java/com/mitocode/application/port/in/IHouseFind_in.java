@@ -1,7 +1,7 @@
 package com.mitocode.application.port.in;
 
 
-import com.mitocode.application.dto.HouseDto;
+import com.mitocode.adapter.dto.HouseDto;
 
 public interface IHouseFind_in {
 
