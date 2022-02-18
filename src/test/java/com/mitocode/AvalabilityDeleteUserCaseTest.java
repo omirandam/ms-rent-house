@@ -20,7 +20,7 @@ import com.mitocode.adapter.jdbc.AvailabilityJdbcAdapter;
 import com.mitocode.adapter.jpa.AvailabilityRepository;
 import com.mitocode.adapter.jpa.HouseRepository;
 import com.mitocode.application.port.in.IAvalabilityDelete_in;
-import com.mitocode.application.port.out.IAvalabilityDelete_out;
+import com.mitocode.application.port.out.Avalability_out;
 import com.mitocode.application.usecase.AvailabilityDeleteUseCase;
 import com.mitocode.object_mother.HouseMother;
 
@@ -34,9 +34,9 @@ public class AvalabilityDeleteUserCaseTest {
 	private AvailabilityRepository availabilityRepository;
 	
 	@InjectMocks
-	private IAvalabilityDelete_out delete_out = new AvailabilityJdbcAdapter(houseRepository, availabilityRepository);
+	private Avalability_out avalability_out = new AvailabilityJdbcAdapter(houseRepository, availabilityRepository);
 
-	private IAvalabilityDelete_in delete_in = new AvailabilityDeleteUseCase(delete_out);
+	private IAvalabilityDelete_in delete_in = new AvailabilityDeleteUseCase(avalability_out);
 	
 	@BeforeEach
     void setMockOutput() {	

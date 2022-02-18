@@ -21,7 +21,7 @@ import com.mitocode.adapter.jdbc.AvailabilityJdbcAdapter;
 import com.mitocode.adapter.jpa.AvailabilityRepository;
 import com.mitocode.adapter.jpa.HouseRepository;
 import com.mitocode.application.port.in.IAvalabilityUpdate_in;
-import com.mitocode.application.port.out.IAvalabilityUpdate_out;
+import com.mitocode.application.port.out.Avalability_out;
 import com.mitocode.application.usecase.AvailabilityUpdateUseCase;
 import com.mitocode.object_mother.HouseMother;
 
@@ -35,9 +35,9 @@ public class AvalabilityUpdateUserCaseTest {
 	private AvailabilityRepository availabilityRepository;
 	
 	@InjectMocks
-	private IAvalabilityUpdate_out update_out = new AvailabilityJdbcAdapter(houseRepository, availabilityRepository);
+	private Avalability_out avalability_out = new AvailabilityJdbcAdapter(houseRepository, availabilityRepository);
 
-	private IAvalabilityUpdate_in update_in = new AvailabilityUpdateUseCase(update_out);
+	private IAvalabilityUpdate_in update_in = new AvailabilityUpdateUseCase(avalability_out);
 	
 	@BeforeEach
     void setMockOutput() {	

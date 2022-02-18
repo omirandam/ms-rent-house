@@ -19,7 +19,7 @@ import com.mitocode.adapter.entity.House;
 import com.mitocode.adapter.jdbc.HouseJdbcAdapter;
 import com.mitocode.adapter.jpa.HouseRepository;
 import com.mitocode.application.port.in.IHouseFindAll_in;
-import com.mitocode.application.port.out.IHouseFindAll_out;
+import com.mitocode.application.port.out.House_out;
 import com.mitocode.application.usecase.HouseFindAllUseCase;
 import com.mitocode.object_mother.HouseMother;
 
@@ -30,9 +30,9 @@ public class HouseFindAllUserCaseTest {
 	private HouseRepository houseRepository;
 	
 	@InjectMocks
-	private IHouseFindAll_out findAll_out = new HouseJdbcAdapter(houseRepository);
+	private House_out house_outt = new HouseJdbcAdapter(houseRepository);
 
-	private IHouseFindAll_in findAll_in = new HouseFindAllUseCase(findAll_out);
+	private IHouseFindAll_in findAll_in = new HouseFindAllUseCase(house_outt);
 	
 	@BeforeEach
     void setMockOutput() {	

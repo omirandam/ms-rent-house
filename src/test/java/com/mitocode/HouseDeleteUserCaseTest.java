@@ -18,7 +18,7 @@ import com.mitocode.adapter.entity.House;
 import com.mitocode.adapter.jdbc.HouseJdbcAdapter;
 import com.mitocode.adapter.jpa.HouseRepository;
 import com.mitocode.application.port.in.IHouseDelete_in;
-import com.mitocode.application.port.out.IHouseDelete_out;
+import com.mitocode.application.port.out.House_out;
 import com.mitocode.application.usecase.HouseDeleteUseCase;
 import com.mitocode.object_mother.HouseMother;
 
@@ -29,9 +29,9 @@ public class HouseDeleteUserCaseTest {
 	private HouseRepository houseRepository;
 	
 	@InjectMocks
-	private IHouseDelete_out delete_out = new HouseJdbcAdapter(houseRepository);
+	private House_out house_out = new HouseJdbcAdapter(houseRepository);
 
-	private IHouseDelete_in delete_in = new HouseDeleteUseCase(delete_out);
+	private IHouseDelete_in delete_in = new HouseDeleteUseCase(house_out);
 	
 	@BeforeEach
     void setMockOutput() {	

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.mitocode.adapter.dto.HouseDto;
 import com.mitocode.application.port.in.IHouseUpdate_in;
-import com.mitocode.application.port.out.IHouseUpdate_out;
+import com.mitocode.application.port.out.House_out;
 import com.mitocode.config.exception.InternalServerErrorException;
 import com.mitocode.config.exception.ResourceNotFoundException;
 
@@ -13,16 +13,16 @@ import com.mitocode.config.exception.ResourceNotFoundException;
 public class HouseUpdateUseCase implements IHouseUpdate_in {
 	
 	@Autowired
-	private IHouseUpdate_out houseUpdate_out;
+	private House_out house_out;
 	
-	public HouseUpdateUseCase (IHouseUpdate_out houseUpdate_out) {
-		this.houseUpdate_out = houseUpdate_out;
+	public HouseUpdateUseCase (House_out house_out) {
+		this.house_out = house_out;
 	}
 	
 	@Override
 	public void update(Integer id, HouseDto houseDto) {
 		try {
-			houseUpdate_out.update(id, houseDto.toEntity());
+			house_out.update(id, houseDto.toEntity());
 	    }
 		catch (ResourceNotFoundException exception) {
 			throw exception;

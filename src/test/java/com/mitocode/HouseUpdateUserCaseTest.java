@@ -18,7 +18,7 @@ import com.mitocode.adapter.entity.House;
 import com.mitocode.adapter.jdbc.HouseJdbcAdapter;
 import com.mitocode.adapter.jpa.HouseRepository;
 import com.mitocode.application.port.in.IHouseUpdate_in;
-import com.mitocode.application.port.out.IHouseUpdate_out;
+import com.mitocode.application.port.out.House_out;
 import com.mitocode.application.usecase.HouseUpdateUseCase;
 import com.mitocode.object_mother.HouseMother;
 
@@ -29,9 +29,9 @@ public class HouseUpdateUserCaseTest {
 	private HouseRepository houseRepository;
 	
 	@InjectMocks
-	private IHouseUpdate_out update_out = new HouseJdbcAdapter(houseRepository);
+	private House_out house_outt = new HouseJdbcAdapter(houseRepository);
 
-	private IHouseUpdate_in update_in = new HouseUpdateUseCase(update_out);
+	private IHouseUpdate_in update_in = new HouseUpdateUseCase(house_outt);
 	
 	@BeforeEach
     void setMockOutput() {	

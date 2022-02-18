@@ -11,14 +11,12 @@ import com.mitocode.adapter.entity.Availability;
 import com.mitocode.adapter.entity.House;
 import com.mitocode.adapter.jpa.AvailabilityRepository;
 import com.mitocode.adapter.jpa.HouseRepository;
-import com.mitocode.application.port.out.IAvalabilityCreate_out;
-import com.mitocode.application.port.out.IAvalabilityDelete_out;
-import com.mitocode.application.port.out.IAvalabilityUpdate_out;
+import com.mitocode.application.port.out.Avalability_out;
 import com.mitocode.config.exception.InternalServerErrorException;
 import com.mitocode.config.exception.ResourceNotFoundException;
 
 @Service
-public class AvailabilityJdbcAdapter implements IAvalabilityCreate_out, IAvalabilityUpdate_out, IAvalabilityDelete_out {
+public class AvailabilityJdbcAdapter implements Avalability_out {
 
 	@Autowired
 	private HouseRepository houseRepository;

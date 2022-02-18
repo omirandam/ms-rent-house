@@ -8,16 +8,12 @@ import org.springframework.stereotype.Service;
 
 import com.mitocode.adapter.entity.House;
 import com.mitocode.adapter.jpa.HouseRepository;
-import com.mitocode.application.port.out.IHouseCreate_out;
-import com.mitocode.application.port.out.IHouseDelete_out;
-import com.mitocode.application.port.out.IHouseFindAll_out;
-import com.mitocode.application.port.out.IHouseFind_out;
-import com.mitocode.application.port.out.IHouseUpdate_out;
+import com.mitocode.application.port.out.House_out;
 import com.mitocode.config.exception.InternalServerErrorException;
 import com.mitocode.config.exception.ResourceNotFoundException;
 
 @Service
-public class HouseJdbcAdapter implements IHouseFind_out, IHouseFindAll_out, IHouseCreate_out, IHouseUpdate_out, IHouseDelete_out  {
+public class HouseJdbcAdapter implements House_out {
 
 	@Autowired
 	private HouseRepository houseRepository;

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mitocode.application.port.in.IAvalabilityDelete_in;
-import com.mitocode.application.port.out.IAvalabilityDelete_out;
+import com.mitocode.application.port.out.Avalability_out;
 import com.mitocode.config.exception.InternalServerErrorException;
 import com.mitocode.config.exception.ResourceNotFoundException;
 
@@ -12,16 +12,16 @@ import com.mitocode.config.exception.ResourceNotFoundException;
 public class AvailabilityDeleteUseCase implements IAvalabilityDelete_in {
 	
 	@Autowired
-	private IAvalabilityDelete_out avalabilityDelete_out;
+	private Avalability_out avalability_out;
 	
-	public AvailabilityDeleteUseCase(IAvalabilityDelete_out avalabilityDelete_out) {
-		this.avalabilityDelete_out = avalabilityDelete_out;
+	public AvailabilityDeleteUseCase(Avalability_out avalability_out) {
+		this.avalability_out = avalability_out;
 	}
 
 	@Override
 	public void delete(Integer id_availability) {
 		try {
-			avalabilityDelete_out.delete(id_availability);
+			avalability_out.delete(id_availability);
 	    }
 		catch (ResourceNotFoundException exception) {
 			throw exception;

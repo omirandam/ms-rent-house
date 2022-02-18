@@ -12,7 +12,7 @@ import com.mitocode.adapter.dto.HouseDto;
 import com.mitocode.adapter.jdbc.HouseJdbcAdapter;
 import com.mitocode.adapter.jpa.HouseRepository;
 import com.mitocode.application.port.in.IHouseCreate_in;
-import com.mitocode.application.port.out.IHouseCreate_out;
+import com.mitocode.application.port.out.House_out;
 import com.mitocode.application.usecase.HouseCreateUseCase;
 import com.mitocode.object_mother.HouseMother;
 
@@ -23,9 +23,9 @@ public class HouseCreateUserCaseTest {
 	private HouseRepository houseRepository;
 	
 	@InjectMocks
-	private IHouseCreate_out create_out = new HouseJdbcAdapter(houseRepository);
+	private House_out house_out = new HouseJdbcAdapter(houseRepository);
 
-	private IHouseCreate_in create_in = new HouseCreateUseCase(create_out);
+	private IHouseCreate_in create_in = new HouseCreateUseCase(house_out);
 	
 
     @DisplayName("Create House Test")
