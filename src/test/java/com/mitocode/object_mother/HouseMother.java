@@ -3,8 +3,8 @@ package com.mitocode.object_mother;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mitocode.adapter.dto.AvailabilityDto;
-import com.mitocode.adapter.dto.HouseDto;
+import com.renthouse.omar.adapter.dto.AvailabilityDto;
+import com.renthouse.omar.adapter.dto.HouseDto;
 
 public class HouseMother {
 
