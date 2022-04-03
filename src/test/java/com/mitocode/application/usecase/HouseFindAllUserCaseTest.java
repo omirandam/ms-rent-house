@@ -11,27 +11,28 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ContextConfiguration;
 
 import com.renthouse.omar.adapter.dto.HouseDto;
 import com.renthouse.omar.adapter.entity.House;
-import com.renthouse.omar.adapter.jdbc.HouseJdbcAdapter;
 import com.renthouse.omar.adapter.jpa.HouseRepository;
 import com.renthouse.omar.application.port.in.IHouseFindAll_in;
 import com.renthouse.omar.application.port.out.House_out;
 import com.renthouse.omar.application.usecase.HouseFindAllUseCase;
 import com.mitocode.object_mother.HouseMother;
 
-
 public class HouseFindAllUserCaseTest {
 	
-	@Mock
+	@MockBean
 	private HouseRepository houseRepository;
 	
 	@InjectMocks
-	private House_out house_outt = new HouseJdbcAdapter(houseRepository);
-
-	private IHouseFindAll_in findAll_in = new HouseFindAllUseCase(house_outt);
+	private House_out house_out;
+	
+	private IHouseFindAll_in findAll_in = new HouseFindAllUseCase(house_out);
 	
 	@BeforeEach
     void setMockOutput() {	

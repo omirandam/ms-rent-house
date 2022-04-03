@@ -22,7 +22,6 @@ import com.renthouse.omar.application.port.out.House_out;
 import com.renthouse.omar.application.usecase.HouseFindUseCase;
 import com.mitocode.object_mother.HouseMother;
 
-@SpringBootTest
 public class HouseFindUserCaseTest {
 
 	@Mock
